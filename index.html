@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Networking Contacts</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags unless you know what you are doing -->
@@ -12,14 +12,50 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Networking Contacts</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li id="sign-up-menu"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li id="sign-in-menu"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+      <li id="sign-out-menu"><a href="#"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+      <li id="change-password-menu"><a href="#"><span class="glyphicon glyphicon-wrench"></span> Change Password</a></li>
+    </ul>
+  </div>
+</nav>
+      <section id="content"></section>
+    <form id="sign-up">
+      <fieldset>
+        <legend>Sign up!</legend>
+        <input name="credentials[email]" type="text" placeholder="Enter Email">
+        <input name="credentials[password]" type="password" placeholder="Enter Password">
+        <input name="credentials[password_confirmation]" type="password" placeholder="Enter Password Confirmation">
+        <input type="submit" name="submit" value="Sign up!">
+      </fieldset>
+    </form>
+    <form id="sign-in">
+      <fieldset>
+        <legend>Sign in!</legend>
+        <input name="credentials[email]" type="text" placeholder="Enter Email">
+        <input name="credentials[password]" type="password" placeholder="Enter Password">
+        <input type="submit" name="submit" value="Sign in!">
+      </fieldset>
+    </form>
+    <form id="change-password">
+      <fieldset>
+        <legend>Change password!</legend>
+        <input name="passwords[old]" type="password" placeholder="Enter old password">
+        <input name="passwords[new]" type="password" placeholder="Enter new password">
+        <input type="submit" name="submit" value="Change Password!">
+      </fieldset>
+    </form>
+    <form id="sign-out">
+      <fieldset>
+        <legend>Sign Out!</legend>
+        <input type="submit" name="submit" value="Sign Out!">
+      </fieldset>
+    </form>
     </body>
 </html>
