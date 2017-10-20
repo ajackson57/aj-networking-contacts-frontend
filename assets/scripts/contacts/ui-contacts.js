@@ -3,7 +3,6 @@ const store = require('../store')
 const showContactsTemplate = require('../templates/contact-listing.handlebars')
 const showContactEditTemplate = require('../templates/contact-edit.handlebars')
 
-
 const displayContacts = (contacts) => {
   console.log(contacts)
   store.contacts = contacts
