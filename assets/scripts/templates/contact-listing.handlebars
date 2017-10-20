@@ -10,7 +10,7 @@
     </thead>
     <tbody>
         {{#each contacts as |contact|}}
-            <tr>
+            <tr row-id="{{contact.id}}" class="edit-contact">
                 <td>{{contact.first_name}} {{contact.last_name}}</td>
                 <td>{{contact.email}}</td>
                 <td>{{contact.company}}</td>

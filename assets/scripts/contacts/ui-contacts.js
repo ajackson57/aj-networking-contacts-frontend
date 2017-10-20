@@ -1,25 +1,20 @@
 'use strict'
-
+const store = require('../store')
 const showContactsTemplate = require('../templates/contact-listing.handlebars')
+const showContactEditTemplate = require('../templates/contact-edit.handlebars')
+
+
+const displayContacts = (contacts) => {
+  console.log(contacts)
+  store.contacts = contacts
+  const showContactsHtml = showContactsTemplate({ contacts: contacts })
+  $('.content').append(showContactsHtml)
+  $('.edit-contact').on('click', editContact)
+}
 
 const getContactsSuccess = (data) => {
   console.log(data)
-  const showContactsHtml = showContactsTemplate({ contacts: data.contacts })
-  $('.content').append(showContactsHtml)
-  $('.remove-button').on('click', onRemoveContact)
-  // $('.remove-button').on('click', (e) => $(e.target).parent().parent().remove())
-  // $('button').on('click', function (e) {
-  //   e.preventDefault()
-  //   $(e.target).parent().parent().remove()
-  // })
-}
-
-const onRemoveContact = (event) => {
-  event.preventDefault()
-  console.log('Remove Contact')
-  // $(event.target).parent().parent().remove()
-  // #content > ul:nth-child(3)
-  // #content > ul:nth-child(6)
+  displayContacts(data.contacts)
 }
 
 const clearContacts = () => {
@@ -28,6 +23,29 @@ const clearContacts = () => {
 
 const failure = (error) => {
   console.error(error)
+}
+
+const onSaveContact = (event) => {
+  console.log('Saved')
+  clearContacts()
+  displayContacts(store.contacts)
+}
+
+const onCancelContact = (event) => {
+  console.log('Cancelled')
+  clearContacts()
+  displayContacts(store.contacts)
+}
+
+const editContact = (event) => {
+  const contactId = event.currentTarget.attributes.getNamedItem('row-id').value
+  const contact = store.contacts[contactId - 1]
+  store.conatctId = contactId
+  clearContacts()
+  const showContactEditHtml = showContactEditTemplate({ contact: contact })
+  $('.content').append(showContactEditHtml)
+  $('button#save-contact').on('click', onSaveContact)
+  $('button#cancel-contact').on('click', onCancelContact)
 }
 
 module.exports = {
