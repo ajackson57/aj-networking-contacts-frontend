@@ -1,0 +1,22 @@
+
+<h1>Contacts:</h1>
+<!-- <script id="some-template" type="text/x-handlebars-template">  -->
+  <table>
+    <thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Company</th>
+    <th>Position</th>
+    </thead>
+    <tbody>
+        {{#each contacts as |contact|}}
+            <tr>
+                <td>{{contact.first_name}} {{contact.last_name}}</td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.company}}</td>
+                <td>{{contact.position}}</td>
+            </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  <!-- </script> -->

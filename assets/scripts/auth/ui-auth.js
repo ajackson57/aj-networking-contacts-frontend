@@ -42,7 +42,6 @@ const signOutSuccess = function (data) {
   store.user = {}
   $('#content').text('Signed out succesfully')
   hideAuthContent()
-  uiGames.hideGameContent()
   $('#sign-in-menu').show()
   $('#sign-up-menu').show()
 }
