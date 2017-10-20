@@ -2,6 +2,7 @@
 
 const api = require('./api-contacts.js')
 const ui = require('./ui-contacts.js')
+// const store = require('../store')
 
 const onGetContacts = (event) => {
   event.preventDefault()
@@ -15,6 +16,18 @@ const onClearContacts = (event) => {
   ui.clearContacts()
 }
 
+// const onSaveContact = (event) => {
+//   console.log('Saved')
+//   ui.clearContacts()
+//   ui.displayContacts(store.contacts)
+// }
+//
+// const onCancelContact = (event) => {
+//   console.log('Cancelled')
+//   ui.clearContacts()
+//   ui.displayContacts(store.contacts)
+// }
+
 const addHandlers = () => {
   $('#getContactsButton').on('click', onGetContacts)
   $('#clearContactsButton').on('click', onClearContacts)
@@ -22,4 +35,6 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers
+  // onSaveContact,
+  // onCancelContact
 }

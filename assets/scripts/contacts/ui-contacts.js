@@ -1,7 +1,9 @@
 'use strict'
+const api = require('./api-contacts.js')
 const store = require('../store')
 const showContactsTemplate = require('../templates/contact-listing.handlebars')
 const showContactEditTemplate = require('../templates/contact-edit.handlebars')
+const eve = require('./events-contacts.js')
 
 const displayContacts = (contacts) => {
   console.log(contacts)
@@ -13,7 +15,13 @@ const displayContacts = (contacts) => {
 
 const getContactsSuccess = (data) => {
   console.log(data)
-  displayContacts(data.contacts)
+  store.contacts = data.contacts
+  displayContacts(store.contacts)
+}
+
+const updateContactSuccess = (data) => {
+  clearContacts()
+  displayContacts(store.contacts)
 }
 
 const clearContacts = () => {
@@ -26,8 +34,12 @@ const failure = (error) => {
 
 const onSaveContact = (event) => {
   console.log('Saved')
-  clearContacts()
-  displayContacts(store.contacts)
+  event.preventDefault()
+  const contactId = store.contactId
+  const contact = store.contacts[contactId - 1]
+  api.updateContact(contactId, contact)
+    .then(updateContactSuccess)
+    .catch(failure)
 }
 
 const onCancelContact = (event) => {
@@ -39,7 +51,7 @@ const onCancelContact = (event) => {
 const editContact = (event) => {
   const contactId = event.currentTarget.attributes.getNamedItem('row-id').value
   const contact = store.contacts[contactId - 1]
-  store.conatctId = contactId
+  store.contactId = contactId
   clearContacts()
   const showContactEditHtml = showContactEditTemplate({ contact: contact })
   $('.content').append(showContactEditHtml)
@@ -50,5 +62,6 @@ const editContact = (event) => {
 module.exports = {
   getContactsSuccess,
   clearContacts,
+  displayContacts,
   failure
 }
