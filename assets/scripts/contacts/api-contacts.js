@@ -1,89 +1,85 @@
 'use strict'
 
 const config = require('../config')
-// const store = require('../store')
-
-const getContacts = function () {
-  return $.ajax({
-    url: config.apiOrigin + '/contacts', // "http://book-json.herokuapp.com/books"
-    method: 'GET'
-  })
-}
+const store = require('../store')
 
 // const getContacts = function () {
 //   return $.ajax({
 //     url: config.apiOrigin + '/contacts', // "http://book-json.herokuapp.com/books"
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }})
+//     method: 'GET'
+//   })
 // }
 
-const createContact = function () {
+const getContacts = function () {
   return $.ajax({
-    url: config.apiOrigin + '/contact',
-    method: 'POST'
-  })
+    url: config.apiOrigin + '/contacts', // "http://book-json.herokuapp.com/books"
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }})
 }
 
-// const createContact = function () {
-//   return $.ajax({
-//     url: config.apiOrigin + '/contact',
-//     method: 'POST',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }})
-// }
-
-const getContact = function (contactId) {
+const createContact = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/contacts/' + contactId,
-    method: 'GET'
+    url: config.apiOrigin + '/contact',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
   })
 }
 
 // const getContact = function (contactId) {
 //   return $.ajax({
 //     url: config.apiOrigin + '/contacts/' + contactId,
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }})
+//     method: 'GET'
+//   })
 // }
 
-const updateContact = function (conatctId, data) {
+const getContact = function (contactId) {
   return $.ajax({
-    url: config.apiOrigin + '/contacts/' + conatctId,
-    method: 'PATCH',
-    data: data
-  })
+    url: config.apiOrigin + '/contacts/' + contactId,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }})
 }
 
-// const updateContact = function (gameId, data) {
+// const updateContact = function (conatctId, data) {
 //   return $.ajax({
-//     url: config.apiOrigin + '/games/' + gameId,
+//     url: config.apiOrigin + '/contacts/' + conatctId,
 //     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
 //     data: data
 //   })
 // }
 
-const deleteContact = function (contactId) {
+const updateContact = function (contactId, data) {
   return $.ajax({
     url: config.apiOrigin + '/contacts/' + contactId,
-    method: 'DELETE'
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
   })
 }
 
 // const deleteContact = function (contactId) {
 //   return $.ajax({
 //     url: config.apiOrigin + '/contacts/' + contactId,
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
+//     method: 'DELETE'
+//   })
+// }
+
+const deleteContact = function (contactId) {
+  return $.ajax({
+    url: config.apiOrigin + '/contacts/' + contactId,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }})
+}
 
 module.exports = {
   getContacts,
