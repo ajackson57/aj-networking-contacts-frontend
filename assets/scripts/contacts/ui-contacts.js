@@ -18,7 +18,7 @@ const displayContact = (contact) => {
 }
 
 const updateContactSuccess = (data) => {
-  $('#getContactsButton').trigger('click')
+  $('#get-contacts-button').trigger('click')
 }
 
 const clearContacts = () => {

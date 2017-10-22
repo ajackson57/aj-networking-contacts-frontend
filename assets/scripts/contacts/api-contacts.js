@@ -19,14 +19,14 @@ const getContacts = function () {
     }})
 }
 
-const createContact = function (data) {
+const createContact = function (contactData) {
   return $.ajax({
-    url: config.apiOrigin + '/contact',
+    url: config.apiOrigin + '/contacts',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: data
+    data: contactData
   })
 }
 
