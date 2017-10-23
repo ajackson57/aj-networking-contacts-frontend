@@ -11,30 +11,39 @@ This is a basic networking contact list managment application.
 - **Styling** - The Boostrap NAV bar and basic styling were used.
 - **HTML** - A table is used to display the list of contacts.
 - **JavaScript** - Events from the table, butons, and the navigation bar drive
-  the application.
+  the application
+- **Handlebars** - The contact table and entry form were done with html in
+  handlebar tamplates.
 - **Ruby on Rails** - The backend server was developed with Ruby's Rails
   framework. Ajax used on the frontend to make requests of the Rails server.
 - [Backend Repository](https://github.com/ajackson57/aj-networking-contacts-backend)
 - [ERD for backend DB](https://github.com/ajackson57/aj-networking-contacts-frontend/blob/master/GA-WDI-Project2-ERD.pdf)
 
 ## The Devlopment Story
-[Initial Schedule]()
+[Initial Schedule](https://github.com/ajackson57/aj-networking-contacts-frontend/blob/master/Schedule.pdf)
  - **The Development Process**
  - The development process started with some rough wireframes, some user
    stories, and a quick planning outline. I divided development into feature
-   groups and created a branch in Git for each group. The branches were as
-   follows:
+   groups and created a branch in Git for each group. The branches for this
+   repository (frontend) were as follows:
+      - frontend - Initial frontend functionality as coped from another projet.
+      - contactHandlebar - Creation of contact form.
+      - addUserAuthentication - Swithch contact controller to protectedcontroller
+      - saveContact - Create contact
+      - addUserReference - Add 1 - to Many relationship between user and conatcts
+      - addDelete - Provide delete contact functionality
+      - updateDocuments - Update project documentation
 
  - **Problem-Solving Strategy**
- - Initial primary strategy was to use console.log to print out information at
-   specific areas in the program flow.
- - I began to use more of the debugging facilities in the DevTools. I setup
-   breakpoints and stepped through the code examining values of objects as I
-   stepped through.
+ - I used the debugging facilities in the DevTools. I analyized error messages
+   setup breakpoints and stepped through the code examining values of objects as
+   I stepped through.
 
 ## Current Issues to be resolved in the future
 - **Future Enhancements**
+- Future enhancements may include the managment of job applications, resume
+  version control, email tracking, and other career managment functionality.
 
 ## Wireframes and User Stories.
 - [Wire Frames](https://github.com/ajackson57/aj-networking-contacts-frontend/blob/master/wireframes/network-wireframe.pdf)
-- [User Stories](https://github.com/ajackson57/aj-tic-tac-toe/blob/master/user-stories.md)
+- [User Stories](https://github.com/ajackson57/aj-networking-contacts-frontend/blob/master/user-stories.md)
