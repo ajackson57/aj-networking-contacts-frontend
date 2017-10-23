@@ -1,5 +1,8 @@
 ## Introduction
-This is a basic networking contact list managment application.
+This project provides the frontend for a basic networking contact list managment
+application. The backend web wervice repository can be found in the link listed
+below.
+- [Backend Repository](https://github.com/ajackson57/aj-networking-contacts-backend)
 
 ## Instructions
 - [Get Started](https://ajackson57.github.io/aj-networking-contacts-frontend/)
@@ -16,7 +19,6 @@ This is a basic networking contact list managment application.
   handlebar tamplates.
 - **Ruby on Rails** - The backend server was developed with Ruby's Rails
   framework. Ajax used on the frontend to make requests of the Rails server.
-- [Backend Repository](https://github.com/ajackson57/aj-networking-contacts-backend)
 - [ERD for backend DB](https://github.com/ajackson57/aj-networking-contacts-frontend/blob/master/GA-WDI-Project2-ERD.pdf)
 
 ## The Devlopment Story
