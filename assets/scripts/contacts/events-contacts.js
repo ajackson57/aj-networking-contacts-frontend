@@ -69,9 +69,7 @@ const onGetContacts = (event) => {
 }
 
 const createContactSuccess = (data) => {
-  console.log(data)
-
-  $('.edit-contact').on('click', editContact)
+  $('#get-contacts-button').trigger('click')
 }
 
 const onCreateContact = (event) => {
@@ -80,11 +78,16 @@ const onCreateContact = (event) => {
   ui.displayContact(exampleContact)
   $('button#save-contact').on('click', onSaveNewContact)
   $('button#cancel-contact').on('click', onCancelContact)
+  $('button#delete-contact').hide
 }
 
 const onClearContacts = (event) => {
   event.preventDefault()
   ui.clearContacts()
+}
+
+function findContact (contact) {
+  return contact.id.toString() === store.contactId
 }
 
 const onSaveNewContact = (event) => {
@@ -108,8 +111,19 @@ const onSaveContact = (event) => {
 
 const onCancelContact = (event) => {
   console.log('Cancelled')
+  event.preventDefault()
   ui.clearContacts()
   ui.displayContacts(store.contacts)
+  $('.edit-contact').on('click', editContact)
+}
+
+const onDeleteContact = (event) => {
+  console.log('Deleted')
+  event.preventDefault()
+  const contactId = store.contactId
+  api.deleteContact(contactId)
+    .then(ui.deleteContactSuccess)
+    .catch(ui.failure)
 }
 
 const addHandlers = () => {
@@ -120,12 +134,14 @@ const addHandlers = () => {
 
 const editContact = (event) => {
   const contactId = event.currentTarget.attributes.getNamedItem('row-id').value
-  const contact = store.contacts[contactId - 1]
   store.contactId = contactId
+  const contact = store.contacts.find(findContact)
   ui.clearContacts()
   ui.displayContact(contact)
   $('button#save-contact').on('click', onSaveContact)
   $('button#cancel-contact').on('click', onCancelContact)
+  $('button#delete-contact').show
+  $('button#delete-contact').on('click', onDeleteContact)
 }
 
 module.exports = {
