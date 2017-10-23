@@ -1,7 +1,7 @@
 
 <h1>Contacts:</h1>
 <!-- <script id="some-template" type="text/x-handlebars-template">  -->
-  <table>
+  <table data-toggle="table" id="grid">
     <thead>
     <th>Name</th>
     <th>Email</th>
@@ -19,4 +19,111 @@
         {{/each}}
       </tbody>
     </table>
-  <!-- </script> -->
+
+    <!-- <div>
+    <h4 id="demo3">Demo 3</h4>
+      <p>The <code>onClick</code> listeners can be aware of which one of a set of elements was clicked.</p>
+
+      <div class="row">
+
+        <div class="col-md-8">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="demo3TableRow" data-row-id="1">
+                <td>1</td>
+                <td>First row</td>
+                <td>Lorem ipsum dolor sit amet</td>
+              </tr>
+              <tr class="demo3TableRow" data-row-id="2">
+                <td>2</td>
+                <td>Second row</td>
+                <td>Nemo enim ipsam voluptatem quia voluptas</td>
+              </tr>
+              <tr class="demo3TableRow" data-row-id="3">
+                <td>3</td>
+                <td>Third row</td>
+                <td>Ut enim ad minima veniam</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-12 collapsibleContainer">
+          <p><a href="#" class="collapsibleBtn">View the code <i class="fa fa-fw fa-chevron-circle-left"></i></a></p>
+          <pre class="collapsible hidden"><code class="lang-js">
+            <!- /* A centralized container of the table data. You could hold the
+   * row-specific data in a data-whatever-info="" attribute in each
+   * row, you decide what fetchElementData() does!
+   */
+  var demo3Rows = {
+    '1': { name: 'First row', description: 'Lorem ipsum dolor sit amet' },
+    '2': { name: 'Second row', description: 'Nemo enim ipsam voluptatem quia voluptas' },
+    '3': { name: 'Third row', description: 'Ut enim ad minima veniam' }
+  };
+
+  var menu = new BootstrapMenu('.demo3TableRow', {
+    /* a function to know which row was the context menu opened on,
+     * given the selected DOM element. When this function is defined,
+     * every user-defined action callback receives its return value as
+     * an argument. */
+    fetchElementData: function($rowElem) {
+      var rowId = $rowElem.data('rowId');
+      return demo3Rows[rowId];
+    },
+    actions: [{
+      name: 'Edit name',
+      onClick: function(row) {
+        toastr.info("'Edit name' clicked on '" + row.name + "'");
+      }
+    }, {
+      name: 'Edit description',
+      onClick: function(row) {
+        toastr.info("'Edit description' clicked on '" + row.name + "'");
+      }
+    }]
+  }); -->
+  <!-- </code></pre>
+        </div>
+      </div>
+
+      <script>
+      /* A centralized container of the table data. You could hold the
+       * row-specific data in a data-whatever-info="" attribute in each
+       * row, you decide what fetchElementData() does!
+       */
+      var demo3Rows = {
+        '1': { name: 'First row', description: 'Lorem ipsum dolor sit amet' },
+        '2': { name: 'Second row', description: 'Nemo enim ipsam voluptatem quia voluptas' },
+        '3': { name: 'Third row', description: 'Ut enim ad minima veniam' }
+      };
+      var menu = new BootstrapMenu('.demo3TableRow', {
+        /* a function to know which row was the context menu opened on,
+         * given the selected DOM element. When this function is defined,
+         * every user-defined action callback receives its return value as
+         * an argument. */
+        fetchElementData: function($rowElem) {
+          var rowId = $rowElem.data('rowId');
+          return demo3Rows[rowId];
+        },
+        actions: [{
+          name: 'Edit name',
+          onClick: function(row) {
+            toastr.info("'Edit name' clicked on '" + row.name + "'");
+          }
+        }, {
+          name: 'Edit description',
+          onClick: function(row) {
+            toastr.info("'Edit description' clicked on '" + row.name + "'");
+          }
+        }]
+      });
+      </script>
+</div> -->
+
+    <!-- </script> -->
