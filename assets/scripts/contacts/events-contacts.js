@@ -14,10 +14,15 @@ const exampleContact = {
   position: 'Bird Chaser'
 }
 
+const sendEmail = function () {
+  document.location.href = 'mailto:' + store.email
+}
+
 const contextMenu = (event) => {
   event.preventDefault()
   store.contextMenuFired = true
   store.contactId = event.target.parentElement.getAttribute('row-id')
+  store.email = event.target.innerText
   $('.context')
     .show()
     .css({
@@ -40,6 +45,9 @@ const contextMenuResponse = (event) => {
       break
     case 'display-company':
       $('#get-contacts-button').trigger('click')
+      break
+    case 'email-contact':
+      sendEmail()
       break
     default:
       $('#content').text('Context menu error, menu item not available')
