@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "bootstrap-contextmenu": "^1.0.0",
     "bootstrap-menu": "^1.0.14",
     "bootstrap-table": "^1.11.2",
     "classnames": "^2.2.5",

@@ -1,7 +1,6 @@
-
-<h1>Contacts (select row to edit or delete):</h1>
+<h3>Contacts (select row to edit or delete):</h1>
 <!-- <script id="some-template" type="text/x-handlebars-template">  -->
-  <table data-toggle="table" id="grid">
+  <table data-toggle="table" id="context" data-toggle="context" data-target="#context-menu">
     <thead>
     <th>Name</th>
     <th>Email</th>
@@ -10,120 +9,36 @@
     </thead>
     <tbody>
         {{#each contacts as |contact|}}
-            <tr row-id="{{contact.id}}" class="edit-contact">
-                <td>{{contact.first_name}} {{contact.last_name}}</td>
-                <td>{{contact.email}}</td>
-                <td>{{contact.company}}</td>
-                <td>{{contact.position}}</td>
+            <tr row-id="{{contact.id}}">
+                <td class="edit-contact">{{contact.first_name}} {{contact.last_name}}</td>
+                <td class="edit-contact">{{contact.email}}</td>
+                <td class="edit-contact">{{contact.position}}</td>
+                <td class="edit-company">{{contact.company}}</td>
             </tr>
         {{/each}}
       </tbody>
     </table>
 
-    <!-- <div>
-    <h4 id="demo3">Demo 3</h4>
-      <p>The <code>onClick</code> listeners can be aware of which one of a set of elements was clicked.</p>
-
-      <div class="row">
-
-        <div class="col-md-8">
-          <table class="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="demo3TableRow" data-row-id="1">
-                <td>1</td>
-                <td>First row</td>
-                <td>Lorem ipsum dolor sit amet</td>
-              </tr>
-              <tr class="demo3TableRow" data-row-id="2">
-                <td>2</td>
-                <td>Second row</td>
-                <td>Nemo enim ipsam voluptatem quia voluptas</td>
-              </tr>
-              <tr class="demo3TableRow" data-row-id="3">
-                <td>3</td>
-                <td>Third row</td>
-                <td>Ut enim ad minima veniam</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-12 collapsibleContainer">
-          <p><a href="#" class="collapsibleBtn">View the code <i class="fa fa-fw fa-chevron-circle-left"></i></a></p>
-          <pre class="collapsible hidden"><code class="lang-js">
-            <!- /* A centralized container of the table data. You could hold the
-   * row-specific data in a data-whatever-info="" attribute in each
-   * row, you decide what fetchElementData() does!
-   */
-  var demo3Rows = {
-    '1': { name: 'First row', description: 'Lorem ipsum dolor sit amet' },
-    '2': { name: 'Second row', description: 'Nemo enim ipsam voluptatem quia voluptas' },
-    '3': { name: 'Third row', description: 'Ut enim ad minima veniam' }
-  };
-
-  var menu = new BootstrapMenu('.demo3TableRow', {
-    /* a function to know which row was the context menu opened on,
-     * given the selected DOM element. When this function is defined,
-     * every user-defined action callback receives its return value as
-     * an argument. */
-    fetchElementData: function($rowElem) {
-      var rowId = $rowElem.data('rowId');
-      return demo3Rows[rowId];
-    },
-    actions: [{
-      name: 'Edit name',
-      onClick: function(row) {
-        toastr.info("'Edit name' clicked on '" + row.name + "'");
-      }
-    }, {
-      name: 'Edit description',
-      onClick: function(row) {
-        toastr.info("'Edit description' clicked on '" + row.name + "'");
-      }
-    }]
-  }); -->
-  <!-- </code></pre>
+    <div class="context" hidden>
+      <div class="context_item">
+        <div class="inner_item" id="new">
+          New
         </div>
       </div>
-
-      <script>
-      /* A centralized container of the table data. You could hold the
-       * row-specific data in a data-whatever-info="" attribute in each
-       * row, you decide what fetchElementData() does!
-       */
-      var demo3Rows = {
-        '1': { name: 'First row', description: 'Lorem ipsum dolor sit amet' },
-        '2': { name: 'Second row', description: 'Nemo enim ipsam voluptatem quia voluptas' },
-        '3': { name: 'Third row', description: 'Ut enim ad minima veniam' }
-      };
-      var menu = new BootstrapMenu('.demo3TableRow', {
-        /* a function to know which row was the context menu opened on,
-         * given the selected DOM element. When this function is defined,
-         * every user-defined action callback receives its return value as
-         * an argument. */
-        fetchElementData: function($rowElem) {
-          var rowId = $rowElem.data('rowId');
-          return demo3Rows[rowId];
-        },
-        actions: [{
-          name: 'Edit name',
-          onClick: function(row) {
-            toastr.info("'Edit name' clicked on '" + row.name + "'");
-          }
-        }, {
-          name: 'Edit description',
-          onClick: function(row) {
-            toastr.info("'Edit description' clicked on '" + row.name + "'");
-          }
-        }]
-      });
-      </script>
-</div> -->
-
-    <!-- </script> -->
+      <div class="context_item">
+        <div class="inner_item" id="edit">
+          Edit
+        </div>
+      </div>
+      <div class="context_item">
+        <div class="inner_item" id="delete">
+          Delete
+        </div>
+      </div>
+      <div class="context_hr"></div>
+      <div class="context_item">
+        <div class="inner_item" id="display-company">
+          Display Company
+        </div>
+      </div>
+    </div>
