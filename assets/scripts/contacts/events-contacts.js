@@ -30,29 +30,25 @@ const contextMenuResponse = (event) => {
   const menuItem = event.target['id']
   switch (menuItem) {
     case 'new':
-      console.log('New selected')
       $('#create-contact-button').trigger('click')
       break
     case 'edit':
-      console.log('Edit selected')
       $('.edit-contact').trigger('click')
       break
     case 'delete':
-      console.log('Delete selected')
-      // $('button#delete-contact').trigger('click')
+      $('button#delete-contact').trigger('click')
       break
     case 'display-company':
-      console.log('Display company selected')
       $('#get-contacts-button').trigger('click')
       break
     default:
-      console.log('Contextmenu item error')
+      $('#content').text('Context menu error, menu item not available')
   }
   $('.context').fadeOut('fast')
 }
 
 const getContactsSuccess = (data) => {
-  // console.log(data)
+  $('#content').text('Contacts succesfully retrieved')
   store.contacts = data.contacts
   ui.displayContacts(store.contacts)
   $('.edit-contact').on('click', editContact)
@@ -70,6 +66,7 @@ const onGetContacts = (event) => {
 }
 
 const createContactSuccess = (data) => {
+  $('#content').text('New contact successfully created.')
   $('#get-contacts-button').trigger('click')
 }
 
@@ -91,7 +88,6 @@ function findContact (contact) {
 }
 
 const onSaveNewContact = (event) => {
-  // console.log('Saved')
   event.preventDefault()
   const contactData = getFormFields(event.target.form)
   contactData.contact['user_id'] = store.user.id
@@ -110,13 +106,12 @@ const onSaveContact = (event) => {
 }
 
 const onCancelContact = (event) => {
-  // console.log('Cancelled')
+  $('#content').text('Cancel selected from contact form.')
   event.preventDefault()
   $('#get-contacts-button').trigger('click')
 }
 
 const onDeleteContact = (event) => {
-  // console.log('Deleted')
   event.preventDefault()
   const contactId = store.contactId
   api.deleteContact(contactId)

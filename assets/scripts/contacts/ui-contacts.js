@@ -25,6 +25,12 @@ const displayNewContact = (contact) => {
 }
 
 const updateContactSuccess = (data) => {
+  $('#content').text('Contact updated successfully.')
+  $('#get-contacts-button').trigger('click')
+}
+
+const deleteContactSuccess = (data) => {
+  $('#content').text('Contact deleted successfully.')
   $('#get-contacts-button').trigger('click')
 }
 
@@ -38,6 +44,7 @@ const failure = (error) => {
 
 module.exports = {
   clearContacts,
+  deleteContactSuccess,
   displayContacts,
   displayContact,
   displayNewContact,
