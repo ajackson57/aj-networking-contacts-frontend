@@ -3,6 +3,8 @@
 const store = require('../store')
 const showContactsTemplate = require('../templates/contact-listing.handlebars')
 const showContactEditTemplate = require('../templates/contact-edit.handlebars')
+const showContactNewTemplate = require('../templates/contact-new.handlebars')
+
 // const eve = require('./events-contacts.js')
 
 const displayContacts = (contacts) => {
@@ -17,11 +19,12 @@ const displayContact = (contact) => {
   $('.content').append(showContactEditHtml)
 }
 
-const updateContactSuccess = (data) => {
-  $('#get-contacts-button').trigger('click')
+const displayNewContact = (contact) => {
+  const showContactNewHtml = showContactNewTemplate({ contact: contact })
+  $('.content').append(showContactNewHtml)
 }
 
-const deleteContactSuccess = (data) => {
+const updateContactSuccess = (data) => {
   $('#get-contacts-button').trigger('click')
 }
 
@@ -35,9 +38,9 @@ const failure = (error) => {
 
 module.exports = {
   clearContacts,
-  deleteContactSuccess,
   displayContacts,
   displayContact,
+  displayNewContact,
   failure,
   updateContactSuccess
 }

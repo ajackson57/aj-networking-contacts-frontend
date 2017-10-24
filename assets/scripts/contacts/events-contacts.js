@@ -16,6 +16,8 @@ const exampleContact = {
 
 const contextMenu = (event) => {
   event.preventDefault()
+  store.contextMenuFired = true
+  store.contactId = event.target.parentElement.getAttribute('row-id')
   $('.context')
     .show()
     .css({
@@ -25,9 +27,28 @@ const contextMenu = (event) => {
 }
 
 const contextMenuResponse = (event) => {
-  if ($('.context').is(':hover') === false) {
-    $('.context').fadeOut('fast')
+  const menuItem = event.target['id']
+  switch (menuItem) {
+    case 'new':
+      console.log('New selected')
+      $('#create-contact-button').trigger('click')
+      break
+    case 'edit':
+      console.log('Edit selected')
+      $('.edit-contact').trigger('click')
+      break
+    case 'delete':
+      console.log('Delete selected')
+      // $('button#delete-contact').trigger('click')
+      break
+    case 'display-company':
+      console.log('Display company selected')
+      $('#get-contacts-button').trigger('click')
+      break
+    default:
+      console.log('Contextmenu item error')
   }
+  $('.context').fadeOut('fast')
 }
 
 const getContactsSuccess = (data) => {
@@ -37,6 +58,7 @@ const getContactsSuccess = (data) => {
   $('.edit-contact').on('click', editContact)
   $('#context').on('contextmenu', contextMenu)
   $('.context').click(contextMenuResponse)
+  $('#delete').on('click', onDeleteContact)
 }
 
 const onGetContacts = (event) => {
@@ -54,10 +76,9 @@ const createContactSuccess = (data) => {
 const onCreateContact = (event) => {
   event.preventDefault()
   ui.clearContacts()
-  ui.displayContact(exampleContact)
+  ui.displayNewContact(exampleContact)
   $('button#save-contact').on('click', onSaveNewContact)
   $('button#cancel-contact').on('click', onCancelContact)
-  $('button#delete-contact').hide
 }
 
 const onClearContacts = (event) => {
@@ -91,9 +112,7 @@ const onSaveContact = (event) => {
 const onCancelContact = (event) => {
   // console.log('Cancelled')
   event.preventDefault()
-  ui.clearContacts()
-  ui.displayContacts(store.contacts)
-  $('.edit-contact').on('click', editContact)
+  $('#get-contacts-button').trigger('click')
 }
 
 const onDeleteContact = (event) => {
@@ -112,8 +131,11 @@ const addHandlers = () => {
 }
 
 const editContact = (event) => {
-  const contactId = event.currentTarget.parentElement.attributes.getNamedItem('row-id').value
-  store.contactId = contactId
+  if (store.contextMenuFired !== true) {
+    store.contactId = event.currentTarget.parentElement.attributes.getNamedItem('row-id').value
+  } else {
+    store.contextMenuFired = true
+  }
   const contact = store.contacts.find(findContact)
   ui.clearContacts()
   ui.displayContact(contact)
