@@ -3,38 +3,38 @@
 const config = require('../config')
 const store = require('../store')
 
-const getContacts = function () {
+const getLogs = function () {
   return $.ajax({
-    url: config.apiOrigin + '/contacts', // "http://book-json.herokuapp.com/books"
+    url: config.apiOrigin + '/logs', // "http://book-json.herokuapp.com/books"
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }})
 }
 
-const createContact = function (contactData) {
+const createLog = function (logData) {
   return $.ajax({
-    url: config.apiOrigin + '/contacts',
+    url: config.apiOrigin + '/logs',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: contactData
+    data: logData
   })
 }
 
-const getContact = function (contactId) {
+const getLog = function (contactId) {
   return $.ajax({
-    url: config.apiOrigin + '/contacts/' + contactId,
+    url: config.apiOrigin + '/logs/' + contactId,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }})
 }
 
-const updateContact = function (contactId, data) {
+const updateLog = function (logId, data) {
   return $.ajax({
-    url: config.apiOrigin + '/contacts/' + contactId,
+    url: config.apiOrigin + '/logs/' + logId,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -43,9 +43,9 @@ const updateContact = function (contactId, data) {
   })
 }
 
-const deleteContact = function (contactId) {
+const deleteLog = function (logId) {
   return $.ajax({
-    url: config.apiOrigin + '/contacts/' + contactId,
+    url: config.apiOrigin + '/logs/' + logId,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -53,9 +53,9 @@ const deleteContact = function (contactId) {
 }
 
 module.exports = {
-  getContacts,
-  getContact,
-  createContact,
-  updateContact,
-  deleteContact
+  getLogs,
+  getLog,
+  createLog,
+  updateLog,
+  deleteLog
 }

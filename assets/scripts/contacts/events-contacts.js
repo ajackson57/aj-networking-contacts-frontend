@@ -3,6 +3,7 @@
 const api = require('./api-contacts.js')
 const ui = require('./ui-contacts.js')
 const store = require('../store')
+const logEvents = require('../logs/events-logs.js')
 const getFormFields = require('../../../lib/get-form-fields')
 // const BootstrapMenu = require('bootstrap-menu')
 
@@ -22,6 +23,7 @@ const contextMenu = (event) => {
   event.preventDefault()
   store.contextMenuFired = true
   store.contactId = event.target.parentElement.getAttribute('row-id')
+  store.contact = store.contacts.find(findContact)
   store.email = event.target.innerText
   $('.context')
     .show()
@@ -43,10 +45,12 @@ const contextMenuResponse = (event) => {
     case 'delete':
       $('button#delete-contact').trigger('click')
       break
-    case 'display-company':
-      $('#get-contacts-button').trigger('click')
+    case 'display-logs':
+      // $('#get-contacts-button').trigger('click')
+      logEvents.displayLogs(store.contactId)
       break
     case 'email-contact':
+      logEvents.createEmailLog(store.contact)
       sendEmail()
       break
     default:

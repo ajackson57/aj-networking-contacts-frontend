@@ -1,25 +1,21 @@
-<h3>Contacts (select row to edit or delete):</h1>
+<h3>Logs:</h1>
 <!-- <script id="some-template" type="text/x-handlebars-template">  -->
   <table data-toggle="table" id="context" data-toggle="context" data-target="#context-menu">
     <thead>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Position</th>
-    <th>Company</th>
+    <th>Date</th>
+    <th>Description</th>
     </thead>
     <tbody>
-        {{#each contacts as |contact|}}
-            <tr row-id="{{contact.id}}">
-                <td class="edit-contact">{{contact.first_name}} {{contact.last_name}}</td>
-                <td class="edit-contact">{{contact.email}}</td>
-                <td class="edit-contact">{{contact.position}}</td>
-                <td class="edit-company">{{contact.company}}</td>
+        {{#each logs as |log|}}
+            <tr row-id="{{log.id}}">
+                <td class="edit-log">{{log.date}}</td>
+                <td class="edit-log">{{log.description}}</td>
             </tr>
         {{/each}}
       </tbody>
     </table>
 
-    <div class="context" hidden>
+    <!-- <div class="context" hidden>
       <div class="context_item">
         <div class="inner_item" id="new">
           New
@@ -46,4 +42,4 @@
           Email Contact
         </div>
       </div>
-    </div>
+    </div> -->
