@@ -22,6 +22,7 @@ const signInSuccess = function (data) {
   $('#get-contacts-button').show()
   $('#clear-contacts-button').show()
   $('#create-contact-button').show()
+  $('#get-contacts-button').trigger('click')
 }
 
 const signInFailure = function (error) {

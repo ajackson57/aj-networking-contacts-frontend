@@ -60,6 +60,10 @@ const contextMenuResponse = (event) => {
 }
 
 const getContactsSuccess = (data) => {
+  if (data.contacts === null || data.contacts.length === 0) {
+    $('#content').text('Current user doesnt have any contacts.')
+    return
+  }
   $('#content').text('Contacts succesfully retrieved')
   store.contacts = data.contacts
   ui.displayContacts(store.contacts)
