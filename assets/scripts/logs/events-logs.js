@@ -9,13 +9,9 @@ const api = require('./api-logs')
 const ui = require('./ui-logs')
 
 const createLogSuccess = (data) => {
-  $('#content').text('Logs succesfully retrieved')
+  $('#content').text('Log succesfully created')
   store.logs = data.logs
-  ui.displayLogs(store.logs)
-  // $('.edit-contact').on('click', editContact)
-  // $('#context').on('contextmenu', contextMenu)
-  // $('.context').click(contextMenuResponse)
-  // $('#delete').on('click', onDeleteContact)
+  $('#get-contacts-button').trigger('click')
 }
 
 const createEmailLog = function (contact) {
@@ -43,11 +39,6 @@ const getLogsSuccess = (data) => {
   } else {
     $('#content').text('Currently no logs associatted with this contact')
   }
-
-  // $('.edit-contact').on('click', editContact)
-  // $('#context').on('contextmenu', contextMenu)
-  // $('.context').click(contextMenuResponse)
-  // $('#delete').on('click', onDeleteContact)
 }
 
 const displayLogs = function () {

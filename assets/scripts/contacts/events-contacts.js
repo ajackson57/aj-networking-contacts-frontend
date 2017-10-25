@@ -147,7 +147,6 @@ const editContact = (event) => {
   ui.displayContact(contact)
   $('button#save-contact').on('click', onSaveContact)
   $('button#cancel-contact').on('click', onCancelContact)
-  $('button#delete-contact').show
   $('button#delete-contact').on('click', onDeleteContact)
 }
 

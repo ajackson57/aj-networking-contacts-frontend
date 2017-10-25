@@ -68,6 +68,9 @@ const addHandlers = function () {
   $('#sign-out-menu').on('click', onSignOutMenu)
   $('#sign-up-menu').on('click', onSignUpMenu)
   $('#change-password-menu').on('click', onChangePasswordMenu)
+  $('#get-contacts-button').hide()
+  $('#clear-contacts-button').hide()
+  $('#create-contact-button').hide()
 }
 
 module.exports = {

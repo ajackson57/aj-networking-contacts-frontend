@@ -19,6 +19,9 @@ const signInSuccess = function (data) {
   $('#change-password-menu').show()
   $('#sign-in-menu').hide()
   $('#sign-up-menu').hide()
+  $('#get-contacts-button').show()
+  $('#clear-contacts-button').show()
+  $('#create-contact-button').show()
 }
 
 const signInFailure = function (error) {
@@ -51,6 +54,9 @@ const hideAuthContent = function () {
   $('#change-password').hide()
   $('#sign-out-menu').hide()
   $('#change-password-menu').hide()
+  $('#get-contacts-button').hide()
+  $('#clear-contacts-button').hide()
+  $('#create-contact-button').hide()
 }
 module.exports = {
   signUpSuccess,
