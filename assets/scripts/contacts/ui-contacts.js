@@ -8,7 +8,6 @@ const showContactNewTemplate = require('../templates/contact-new.handlebars')
 // const eve = require('./events-contacts.js')
 
 const displayContacts = (contacts) => {
-  console.log(contacts)
   store.contacts = contacts
   const showContactsHtml = showContactsTemplate({ contacts: contacts })
   $('.content').append(showContactsHtml)

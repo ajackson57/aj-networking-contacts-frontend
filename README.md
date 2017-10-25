@@ -32,13 +32,14 @@ below.
       - contactHandlebar - Creation of contact form.
       - addUserAuthentication - Swithch contact controller to protectedcontroller
       - saveContact - Create contact
-      - addUserReference - Add 1 - to Many relationship between user and conatcts
+      - addUserReference - Add 1-to-Many relationship between user and conatcts
       - addDelete - Provide delete contact functionality
       - updateDocuments - Update project documentation
+      - addLog - add communications tracking log
 
  - **Problem-Solving Strategy**
- - I used the debugging facilities in the DevTools. I analyized error messages
-   setup breakpoints and stepped through the code examining values of objects as
+ - I used the debugging facilities in the DevTools. I analyized error messages,
+   setup breakpoints, and stepped through the code examining values of objects as
    I stepped through.
 
 ## Current Issues to be resolved in the future

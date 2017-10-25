@@ -108,7 +108,6 @@ const onSaveNewContact = (event) => {
     .catch(ui.failure)
 }
 const onSaveContact = (event) => {
-  // console.log('Saved')
   event.preventDefault()
   const contactId = store.contactId
   const contactData = getFormFields(event.target.form)

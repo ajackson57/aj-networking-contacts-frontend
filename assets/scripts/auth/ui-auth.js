@@ -15,11 +15,6 @@ const signInSuccess = function (data) {
   store.user = data.user
   $('#content').text('Signed in succesfully')
   $('#sign-in').hide()
-  $('#game-board').show()
-  $('#get-statistics').show()
-  // $('#get-games').show()
-  // $('#get-game').show()
-  $('#new-game').show()
   $('#sign-out-menu').show()
   $('#change-password-menu').show()
   $('#sign-in-menu').hide()

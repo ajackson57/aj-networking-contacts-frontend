@@ -6,7 +6,6 @@ const showLogsTemplate = require('../templates/log-listing.handlebars')
 // const showContactNewTemplate = require('../templates/contact-new.handlebars')
 
 const displayLogs = (logs) => {
-  console.log(logs)
   store.logs = logs
   const showLogsHtml = showLogsTemplate({ logs: logs })
   $('.content').append(showLogsHtml)
