@@ -9,12 +9,12 @@ const onSignUp = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
   if (data.credentials.password === '') {
-    $('#content').text('Passwords cannot be blank')
+    $('#content-feedback').text('Passwords cannot be blank')
     return
   } else if (data.credentials.password_confirmation === '') {
     data.credentials.password_confirmation = data.credentials.password
   } else if (data.credentials.password_confirmation !== data.credentials.password) {
-    $('#content').text('Passwords must match')
+    $('#content-feedback').text('Passwords must match')
     return
   }
   api.signUp(data)
@@ -35,6 +35,10 @@ const onChangePassword = function (event) {
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
+const onCancelChangePassword = function (event) {
+  event.preventDefault()
+  ui.cancelChangePassword()
+}
 const onSignOut = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
@@ -44,18 +48,22 @@ const onSignOut = function (event) {
 }
 const onSignInMenu = function (event) {
   event.preventDefault()
+  ui.hideAuthContent()
   $('#sign-in').show()
 }
 const onSignOutMenu = function (event) {
   event.preventDefault()
+  ui.hideAuthContent()
   $('#sign-out').trigger('submit')
 }
 const onSignUpMenu = function (event) {
   event.preventDefault()
+  ui.hideAuthContent()
   $('#sign-up').show()
 }
 const onChangePasswordMenu = function (event) {
   event.preventDefault()
+  ui.hideAuthContent()
   $('#change-password').show()
 }
 
@@ -63,13 +71,14 @@ const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
+  $('#cancel-password-change').on('click', onCancelChangePassword)
   $('#sign-out').on('submit', onSignOut)
   $('#sign-in-menu').on('click', onSignInMenu)
   $('#sign-out-menu').on('click', onSignOutMenu)
   $('#sign-up-menu').on('click', onSignUpMenu)
   $('#change-password-menu').on('click', onChangePasswordMenu)
   $('#get-contacts-button').hide()
-  $('#clear-contacts-button').hide()
+  // $('#clear-contacts-button').hide()
   $('#create-contact-button').hide()
 }
 

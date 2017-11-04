@@ -8,7 +8,7 @@ const showLogsTemplate = require('../templates/log-listing.handlebars')
 const displayLogs = (logs) => {
   store.logs = logs
   const showLogsHtml = showLogsTemplate({ logs: logs })
-  $('.content').append(showLogsHtml)
+  $('#content').append(showLogsHtml)
 }
 
 const failure = (error) => {

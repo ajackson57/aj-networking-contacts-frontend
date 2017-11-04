@@ -29,8 +29,9 @@
     </div>
   </nav>
   <button id="get-contacts-button" class="btn btn-default">Get Contacts!</button>
-  <button id="clear-contacts-button" class="btn btn-default">Clear Contacts!</button>
+  <!-- <button id="clear-contacts-button" class="btn btn-default">Clear Contacts!</button> -->
   <button id="create-contact-button" class="btn btn-default">Create Contact</button>
+ <div id="content-feedback" class="content"></div>
   <div id="content" class="content"></div>
   <!-- <a href="mailto:ajackson5759@gmail.com">Click here to mail</a> -->
   <!-- <section id="content"></section> -->
@@ -40,7 +41,7 @@
       <input name="credentials[email]" type="text" placeholder="Enter Email">
       <input name="credentials[password]" type="password" placeholder="Enter Password">
       <input name="credentials[password_confirmation]" type="password" placeholder="Enter Password Confirmation">
-      <input type="submit" name="submit" value="Sign up!">
+      <input class="btn btn-primary" type="submit" name="submit" value="Sign up!">
     </fieldset>
   </form>
   <form id="sign-in">
@@ -48,7 +49,7 @@
       <legend>Sign in!</legend>
       <input name="credentials[email]" type="text" placeholder="Enter Email">
       <input name="credentials[password]" type="password" placeholder="Enter Password">
-      <input type="submit" name="submit" value="Sign in!">
+      <input class="btn btn-primary" type="submit" name="submit" value="Sign in!">
     </fieldset>
   </form>
   <form id="change-password">
@@ -56,13 +57,14 @@
       <legend>Change password!</legend>
       <input name="passwords[old]" type="password" placeholder="Enter old password">
       <input name="passwords[new]" type="password" placeholder="Enter new password">
-      <input type="submit" name="submit" value="Change Password!">
+      <input type="submit" class="btn btn-primary" name="submit" value="Change Password!">
+      <button class="btn btn-primary" id="cancel-password-change">Cancel</button>
     </fieldset>
   </form>
   <form id="sign-out">
     <fieldset>
       <legend>Sign Out!</legend>
-      <input type="submit" name="submit" value="Sign Out!">
+      <input type="submit" class="btn btn-primary" name="submit" value="Sign Out!">
     </fieldset>
   </form>
 </body>

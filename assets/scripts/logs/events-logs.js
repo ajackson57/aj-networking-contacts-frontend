@@ -9,7 +9,7 @@ const api = require('./api-logs')
 const ui = require('./ui-logs')
 
 const createLogSuccess = (data) => {
-  $('#content').text('Log succesfully created')
+  $('#content-feedback').text('Log succesfully created')
   store.logs = data.logs
   $('#get-contacts-button').trigger('click')
 }
@@ -34,10 +34,11 @@ function filtrerLogs (log) {
 const getLogsSuccess = (data) => {
   store.logs = data.logs.filter(filtrerLogs)
   if (store.logs.length !== 0) {
-    $('#content').text('Logs succesfully retrieved')
+    $('#content-feedback').text('Logs succesfully retrieved')
     ui.displayLogs(store.logs)
   } else {
-    $('#content').text('Currently no logs associatted with this contact')
+    $('#content-feedback').text('Currently no logs associatted with this contact')
+    $('#get-contacts-button').trigger('click')
   }
 }
 

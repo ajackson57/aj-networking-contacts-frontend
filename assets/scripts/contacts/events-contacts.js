@@ -54,17 +54,16 @@ const contextMenuResponse = (event) => {
       sendEmail()
       break
     default:
-      $('#content').text('Context menu error, menu item not available')
+      $('#content-feedback').text('Context menu error, menu item not available')
   }
   $('.context').fadeOut('fast')
 }
 
 const getContactsSuccess = (data) => {
   if (data.contacts === null || data.contacts.length === 0) {
-    $('#content').text('Current user doesnt have any contacts.')
+    $('#content-feedback').text('Current user doesnt have any contacts.')
     return
   }
-  $('#content').text('Contacts succesfully retrieved')
   store.contacts = data.contacts
   ui.displayContacts(store.contacts)
   $('.edit-contact').on('click', editContact)
@@ -82,7 +81,7 @@ const onGetContacts = (event) => {
 }
 
 const createContactSuccess = (data) => {
-  $('#content').text('New contact successfully created.')
+  $('#content-feedback').text('New contact successfully created.')
   $('#get-contacts-button').trigger('click')
 }
 
@@ -94,10 +93,10 @@ const onCreateContact = (event) => {
   $('button#cancel-contact').on('click', onCancelContact)
 }
 
-const onClearContacts = (event) => {
-  event.preventDefault()
-  ui.clearContacts()
-}
+// const onClearContacts = (event) => {
+//   event.preventDefault()
+//   ui.clearContacts()
+// }
 
 function findContact (contact) {
   return contact.id.toString() === store.contactId
@@ -107,6 +106,12 @@ const onSaveNewContact = (event) => {
   event.preventDefault()
   const contactData = getFormFields(event.target.form)
   contactData.contact['user_id'] = store.user.id
+  if (contactData.contact['first_name'] === '' ||
+      contactData.contact['last_name'] === '' ||
+      contactData.contact['email'] === '') {
+    $('#content-feedback').text('First Name, Last Name, and Email are all required')
+    return
+  }
   api.createContact(contactData)
     .then(createContactSuccess)
     .catch(ui.failure)
@@ -115,13 +120,19 @@ const onSaveContact = (event) => {
   event.preventDefault()
   const contactId = store.contactId
   const contactData = getFormFields(event.target.form)
+  if (contactData.contact['first_name'] === '' ||
+      contactData.contact['last_name'] === '' ||
+      contactData.contact['email'] === '') {
+    $('#content-feedback').text('First Name, Last Name, and Email are all required')
+    return
+  }
   api.updateContact(contactId, contactData)
     .then(ui.updateContactSuccess)
     .catch(ui.failure)
 }
 
 const onCancelContact = (event) => {
-  $('#content').text('Cancel selected from contact form.')
+  $('#content-feedback').text('Cancel selected from contact form.')
   event.preventDefault()
   $('#get-contacts-button').trigger('click')
 }
@@ -136,7 +147,7 @@ const onDeleteContact = (event) => {
 
 const addHandlers = () => {
   $('#get-contacts-button').on('click', onGetContacts)
-  $('#clear-contacts-button').on('click', onClearContacts)
+  // $('#clear-contacts-button').on('click', onClearContacts)
   $('#create-contact-button').on('click', onCreateContact)
 }
 

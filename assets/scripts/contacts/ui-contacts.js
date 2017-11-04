@@ -10,34 +10,35 @@ const showContactNewTemplate = require('../templates/contact-new.handlebars')
 const displayContacts = (contacts) => {
   store.contacts = contacts
   const showContactsHtml = showContactsTemplate({ contacts: contacts })
-  $('.content').append(showContactsHtml)
+  $('#content').append(showContactsHtml)
 }
 
 const displayContact = (contact) => {
   const showContactEditHtml = showContactEditTemplate({ contact: contact })
-  $('.content').append(showContactEditHtml)
+  $('#content').append(showContactEditHtml)
 }
 
 const displayNewContact = (contact) => {
   const showContactNewHtml = showContactNewTemplate({ contact: contact })
-  $('.content').append(showContactNewHtml)
+  $('#content').append(showContactNewHtml)
 }
 
 const updateContactSuccess = (data) => {
-  $('#content').text('Contact updated successfully.')
+  $('#content-feedback').text('Contact updated successfully.')
   $('#get-contacts-button').trigger('click')
 }
 
 const deleteContactSuccess = (data) => {
-  $('#content').text('Contact deleted successfully.')
+  $('#content-feedback').text('Contact deleted successfully.')
   $('#get-contacts-button').trigger('click')
 }
 
 const clearContacts = () => {
-  $('.content').empty()
+  $('#content').empty()
 }
 
 const failure = (error) => {
+  $('#content-feedback').text(error.responseText)
   console.error(error)
 }
 

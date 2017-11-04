@@ -2,15 +2,15 @@
 <!-- <script id="some-template" type="text/x-handlebars-template">  -->
 <form id="new-contact" >
     <label for="firstname">First Name</label>
-    <input name="contact[first_name]" type="text" id="firstname" value="{{contact.first_name}}"><br/>
+    <input name="contact[first_name]" type="text" class="form-control" id="firstname" placeholder="{{contact.first_name}}" required><br/>
     <label for="lastname">Last Name</label>
-	  <input name="contact[last_name]" type="text" id="lastname" value="{{contact.last_name}}"><br/>
+	  <input name="contact[last_name]" type="text" class="form-control" id="lastname" placeholder="{{contact.last_name}}" required><br/>
     <label for="email">Email</label>
-	  <input name="contact[email]" type="text" id="email" value="{{contact.email}}"><br/>
+	  <input name="contact[email]" type="text" class="form-control" id="email" placeholder="{{contact.email}}" required><br/>
     <label for="company">Company</label>
-    <input name="contact[company]" type="text" id="company" value="{{contact.company}}"><br/>
+    <input name="contact[company]" type="text" class="form-control" id="company" placeholder="{{contact.company}}"><br/>
     <label for="position">Position</label>
-    <input name="contact[position]" type="text" id="position" value="{{contact.position}}"><br/>
-	  <button id="cancel-contact">Cancel</button><button id="save-contact">Save</button>
+    <input name="contact[position]" type="text" class="form-control" id="position" placeholder="{{contact.position}}"><br/>
+	  <button class="btn btn-primary" id="cancel-contact">Cancel</button><button class="btn btn-primary" id="save-contact">Save</button>
 </form>
   <!-- </script> -->

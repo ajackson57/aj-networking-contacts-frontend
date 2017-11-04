@@ -4,49 +4,66 @@ const store = require('../store')
 // const gameEvents = require('../games/events-games')
 
 const signUpSuccess = function (data) {
-  $('#content').text('Sign up was succesfull')
+  $('#content-feedback').text('Sign up was succesfull')
   $('#sign-up').hide()
 }
 
 const signUpFailure = function (error) {
-  $('#content').text('Eror on sign up: ', error)
+  $('#content-feedback').text('Eror on sign up: ', error)
 }
 const signInSuccess = function (data) {
   store.user = data.user
-  $('#content').text('Signed in succesfully')
+  $('#content-feedback').text('Signed in succesfully')
   $('#sign-in').hide()
   $('#sign-out-menu').show()
   $('#change-password-menu').show()
   $('#sign-in-menu').hide()
   $('#sign-up-menu').hide()
   $('#get-contacts-button').show()
-  $('#clear-contacts-button').show()
+  // $('#clear-contacts-button').show()
   $('#create-contact-button').show()
   $('#get-contacts-button').trigger('click')
 }
 
 const signInFailure = function (error) {
-  $('#content').text('Error on sign-in: ', error)
+  $('#content-feedback').text('Error on sign-in: ', error)
 }
 const changePasswordSuccess = function (data) {
   ('Data from CPW :', data)
-  $('#content').text('Password changed succesfully')
+  $('#content-feedback').text('Password changed succesfully')
   $('#change-password').hide()
+  $('#sign-out-menu').show()
+  $('#change-password-menu').show()
+  $('#get-contacts-button').show()
+  // $('#clear-contacts-button').show()
+  $('#create-contact-button').show()
+  $('#get-contacts-button').trigger('click')
+}
+
+const cancelChangePassword = function () {
+  $('#content-feedback').text('Cancelled password change')
+  $('#change-password').hide()
+  $('#sign-out-menu').show()
+  $('#change-password-menu').show()
+  $('#get-contacts-button').show()
+  // $('#clear-contacts-button').show()
+  $('#create-contact-button').show()
+  $('#get-contacts-button').trigger('click')
 }
 
 const changePasswordFailure = function (error) {
-  $('#content').text('Error on password change: ', error)
+  $('#content-feedback').text('Error on password change: ', error)
 }
 const signOutSuccess = function (data) {
   store.user = {}
-  $('#content').text('Signed out succesfully')
+  $('#content-feedback').text('Signed out succesfully')
   hideAuthContent()
   $('#sign-in-menu').show()
   $('#sign-up-menu').show()
 }
 
 const signOutFailure = function (error) {
-  $('#content').text('Error sign out: ', error)
+  $('#content-feedback').text('Error sign out: ', error)
 }
 const hideAuthContent = function () {
   $('#sign-up').hide()
@@ -56,8 +73,9 @@ const hideAuthContent = function () {
   $('#sign-out-menu').hide()
   $('#change-password-menu').hide()
   $('#get-contacts-button').hide()
-  $('#clear-contacts-button').hide()
+  // $('#clear-contacts-button').hide()
   $('#create-contact-button').hide()
+  $('#content').empty()
 }
 module.exports = {
   signUpSuccess,
@@ -66,6 +84,7 @@ module.exports = {
   signInFailure,
   changePasswordSuccess,
   changePasswordFailure,
+  cancelChangePassword,
   signOutSuccess,
   signOutFailure,
   hideAuthContent
