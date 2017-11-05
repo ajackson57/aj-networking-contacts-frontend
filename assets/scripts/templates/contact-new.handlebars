@@ -1,16 +1,36 @@
 <h3>New Contact:</h1>
 <!-- <script id="some-template" type="text/x-handlebars-template">  -->
 <form id="new-contact" >
+  <div class="row">
+            <div class="form-group col-lg-3">
     <label for="firstname">First Name</label>
     <input name="contact[first_name]" type="text" class="form-control" id="firstname" placeholder="{{contact.first_name}}" required><br/>
+</div>
+</div>
+<div class="row">
+          <div class="form-group col-lg-3">
     <label for="lastname">Last Name</label>
 	  <input name="contact[last_name]" type="text" class="form-control" id="lastname" placeholder="{{contact.last_name}}" required><br/>
+  </div>
+  </div>
+  <div class="row">
+            <div class="form-group col-lg-3">
     <label for="email">Email</label>
 	  <input name="contact[email]" type="text" class="form-control" id="email" placeholder="{{contact.email}}" required><br/>
+  </div>
+  </div>
+    <div class="row">
+              <div class="form-group col-lg-3">
     <label for="company">Company</label>
     <input name="contact[company]" type="text" class="form-control" id="company" placeholder="{{contact.company}}"><br/>
+  </div>
+  </div>
+    <div class="row">
+              <div class="form-group col-lg-3">
     <label for="position">Position</label>
     <input name="contact[position]" type="text" class="form-control" id="position" placeholder="{{contact.position}}"><br/>
-	  <button class="btn btn-primary" id="cancel-contact">Cancel</button><button class="btn btn-primary" id="save-contact">Save</button>
+  </div>
+  </div>
+    <button class="btn btn-primary" id="cancel-contact">Cancel</button><button class="btn btn-primary" id="save-contact">Save</button>
 </form>
   <!-- </script> -->
