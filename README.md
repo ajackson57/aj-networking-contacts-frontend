@@ -6,8 +6,10 @@ below.
 
 ## Instructions
 - [Get Started](https://ajackson57.github.io/aj-networking-contacts-frontend/)
-- As a user ypu must register for an account. Once an account is created you
-  login and you can display, create, edit, and delete contacts.
+- As a user you must register for an account. Once an account is created you
+  login and you can display, create, edit, and delete contacts. Once an initial
+  contact has been added by a user with the create contact button, all operations can be performed by selecting a row in the contacts table and using the right-click context menu. A communication log entry is automatically created
+  when email is selected from the context menu for a contact.
 - [Backend Server hosted on Heroku](https://gentle-crag-17128.herokuapp.com/)
 
 ## Technologies used.
@@ -44,8 +46,11 @@ below.
 
 ## Current Issues to be resolved in the future
 - **Future Enhancements**
-- Future enhancements may include the managment of job applications, resume
-  version control, email tracking, and other career managment functionality.
+- Managment of companies was part of the original vision but this got scaled
+  back and conatct user logs were created.
+- Future enhancements may include the managment of companies, job applications,
+  resume version control, additional contact communication logging, and other
+  career managment functionality.
 
 ## Wireframes and User Stories.
 - [Wire Frames](https://github.com/ajackson57/aj-networking-contacts-frontend/blob/master/wireframes/network-wireframe.pdf)
